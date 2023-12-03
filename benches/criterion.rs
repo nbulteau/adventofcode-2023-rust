@@ -6,24 +6,24 @@ use aoc2023::{day01, day02, day03};
 use aoc2023::utils::get_day_input;
 
 /// Get the input for a given day.
-fn aoc2023_bench(c: &mut Criterion) -> Result<(), io::Error> {
+fn aoc2023_bench(criterion: &mut Criterion) -> Result<(), io::Error> {
     let data = get_day_input(1)?;
-    let mut g = c.benchmark_group("Day 1");
-    g.bench_function("Part one answer : ", |b| b.iter(|| day01::part1(black_box(&data))));
-    g.bench_function("Part two answer : ", |b| b.iter(|| day01::part2(black_box(&data))));
-    g.finish();
+    let mut group = criterion.benchmark_group("Day 1");
+    group.bench_function("Part one answer : ", |b| b.iter(|| day01::part1(black_box(&data))));
+    group.bench_function("Part two answer : ", |b| b.iter(|| day01::part2(black_box(&data))));
+    group.finish();
 
     let data = get_day_input(2)?;
-    let mut g = c.benchmark_group("Day 2");
-    g.bench_function("Part one answer : ", |b| b.iter(|| day02::part1(black_box(&data))));
-    g.bench_function("Part two answer : ", |b| b.iter(|| day02::part2(black_box(&data))));
-    g.finish();
+    let mut group = criterion.benchmark_group("Day 2");
+    group.bench_function("Part one answer : ", |b| b.iter(|| day02::part1(black_box(&data))));
+    group.bench_function("Part two answer : ", |b| b.iter(|| day02::part2(black_box(&data))));
+    group.finish();
 
     let data = get_day_input(3)?;
-    let mut g = c.benchmark_group("Day 3");
-    g.bench_function("Part one answer : ", |b| b.iter(|| day03::part1(black_box(&data))));
-    g.bench_function("Part two answer : ", |b| b.iter(|| day03::part2(black_box(&data))));
-    g.finish();
+    let mut group = criterion.benchmark_group("Day 3");
+    group.bench_function("Part one answer : ", |b| b.iter(|| day03::part1(black_box(&data))));
+    group.bench_function("Part two answer : ", |b| b.iter(|| day03::part2(black_box(&data))));
+    group.finish();
 
     Ok(())
 }
