@@ -1,0 +1,27 @@
+[package]
+name = "adventofcode-rust"
+description = "Advent of Code 2023 - Rust"
+version = "0.1.0"
+edition = "2021"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "aoc2023" # The name of the library crate
+path = "src/lib.rs"
+
+[[bin]]
+name = "aoc2023-main"  # The name of the executable file
+path = "src/main.rs"
+
+[[bench]]
+name = "criterion"
+harness = false
+path = "benches/criterion.rs"
+
+[dependencies]
+criterion = "0.5.1"
+indoc = "2"
+pretty_assertions = "1.4.0"
+regex = "1.10.2"
