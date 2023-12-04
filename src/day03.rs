@@ -3,13 +3,13 @@ use std::collections::HashMap;
 use regex::Regex;
 
 
-pub fn part1(data: &str) -> u32 {
+pub fn part_one(data: &str) -> u32 {
     let map = build_map(data);
 
     map.values().flatten().sum()
 }
 
-pub fn part2(data: &str) -> u32 {
+pub fn part_two(data: &str) -> u32 {
     let map: HashMap<(usize, usize, char), Vec<u32>> = build_map(data);
 
     // A gear is any '*' symbol that is adjacent to exactly two part numbers.
@@ -71,12 +71,12 @@ mod tests {
     "};
 
     #[test]
-    fn part1_examples() {
-        assert_eq!(4361, part1(TRAINING));
+    fn part_one_examples() {
+        assert_eq!(4361, part_one(TRAINING));
     }
 
     #[test]
-    fn part2_examples() {
-        assert_eq!(467835, part2(TRAINING));
+    fn part_two_examples() {
+        assert_eq!(467835, part_two(TRAINING));
     }
 }

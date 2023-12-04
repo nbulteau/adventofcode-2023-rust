@@ -1,6 +1,6 @@
 // Desc: Day 2 - Advent of Code
 
-pub fn part1(data: &str) -> u32 {
+pub fn part_one(data: &str) -> u32 {
     let red_max = 12;
     let green_max = 13;
     let blue_max = 14;
@@ -30,7 +30,7 @@ pub fn part1(data: &str) -> u32 {
         .sum()
 }
 
-pub fn part2(data: &str) -> u32 {
+pub fn part_two(data: &str) -> u32 {
     data.lines()
         .filter_map(|line| -> Option<u32> {
             let mut red_max = 0;
@@ -94,12 +94,12 @@ mod tests {
     "};
 
     #[test]
-    fn part1_examples() {
-        assert_eq!(8, part1(TRAINING));
+    fn part_one_examples() {
+        assert_eq!(8, part_one(TRAINING));
     }
 
     #[test]
-    fn part2_examples() {
-        assert_eq!(2286, part2(TRAINING));
+    fn part_two_examples() {
+        assert_eq!(2286, part_two(TRAINING));
     }
 }

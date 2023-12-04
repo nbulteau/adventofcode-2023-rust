@@ -25,7 +25,7 @@ fn solve(data: &str, mapping: &[(&str, u32)]) -> u32 {
         .sum()
 }
 
-pub fn part1(data: &str) -> u32 {
+pub fn part_one(data: &str) -> u32 {
     solve(
         data,
         &[
@@ -43,7 +43,7 @@ pub fn part1(data: &str) -> u32 {
     )
 }
 
-pub fn part2(data: &str) -> u32 {
+pub fn part_two(data: &str) -> u32 {
     solve(
         data,
         &[
@@ -94,12 +94,12 @@ mod tests {
     "};
 
     #[test]
-    fn part1_examples() {
-        assert_eq!(142, part1(TRAINING_1));
+    fn part_one_examples() {
+        assert_eq!(142, part_one(TRAINING_1));
     }
 
     #[test]
-    fn part2_examples() {
-        assert_eq!(281, part2(TRAINING_2));
+    fn part_two_examples() {
+        assert_eq!(281, part_two(TRAINING_2));
     }
 }

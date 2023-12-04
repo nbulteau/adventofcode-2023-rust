@@ -1,4 +1,5 @@
 use std::io;
+use std::io::Error;
 
 use criterion::{black_box, Criterion};
 
@@ -7,22 +8,19 @@ use aoc2023::utils::get_day_input;
 
 /// Get the input for a given day.
 fn aoc2023_bench(criterion: &mut Criterion) -> Result<(), io::Error> {
-    let data = get_day_input(1)?;
-    let mut group = criterion.benchmark_group("Day 1");
-    group.bench_function("Part one answer : ", |b| b.iter(|| day01::part1(black_box(&data))));
-    group.bench_function("Part two answer : ", |b| b.iter(|| day01::part2(black_box(&data))));
-    group.finish();
+    launch_bench(criterion, 1, day01::part_one, day01::part_two)?;
+    launch_bench(criterion, 2, day02::part_one, day02::part_two)?;
+    launch_bench(criterion, 3, day03::part_one, day03::part_two)?;
+    launch_bench(criterion, 4, day03::part_one, day03::part_two)?;
 
-    let data = get_day_input(2)?;
-    let mut group = criterion.benchmark_group("Day 2");
-    group.bench_function("Part one answer : ", |b| b.iter(|| day02::part1(black_box(&data))));
-    group.bench_function("Part two answer : ", |b| b.iter(|| day02::part2(black_box(&data))));
-    group.finish();
+    Ok(())
+}
 
-    let data = get_day_input(3)?;
-    let mut group = criterion.benchmark_group("Day 3");
-    group.bench_function("Part one answer : ", |b| b.iter(|| day03::part1(black_box(&data))));
-    group.bench_function("Part two answer : ", |b| b.iter(|| day03::part2(black_box(&data))));
+fn launch_bench(criterion: &mut Criterion, day: u8, part1: fn(&str) -> u32, part2: fn(&str) -> u32) -> Result<(), Error> {
+    let data = get_day_input(day)?;
+    let mut group = criterion.benchmark_group(format!("Day {}", day));
+    group.bench_function("Part one answer : ", |b| b.iter(|| part1(black_box(&data))));
+    group.bench_function("Part two answer : ", |b| b.iter(|| part2(black_box(&data))));
     group.finish();
 
     Ok(())
