@@ -19,9 +19,6 @@ fn main() -> io::Result<()> {
     launch_day(&args, 5, day05::part_one, day05::part_two)?;
     launch_day(&args, 6, day06::part_one, day06::part_two)?;
 
-    launch_day(&args, 5, day05::part_two, day05::part_two_brut_force)?;
-
-
     Ok(())
 }
 

@@ -19,6 +19,8 @@ pub fn part_one(data: &str) -> u64 {
 }
 
 // This is a brute force solution that works for the example but is very slow for the real input
+// It is kept here for reference and to compare with the optimized solution below
+// More than 3 hours on my machine for 2_333_037_642 seeds
 pub fn part_two_brut_force(data: &str) -> u64 {
     let almanac_blocks: Vec<&str> = data.split("\n\n").map(|s| s.trim()).collect();
     let seeds = extract_seeds_from_ranges(&almanac_blocks);
@@ -129,7 +131,7 @@ fn get_location_for_seed(seed: u64, almanac: &HashMap<String, AlmanacEntry>) -> 
     value
 }
 
-fn get_locations_for_seed_ranges(seed: Vec<(u64, u64)>, almanac: &HashMap<String, AlmanacEntry>, ) -> Vec<(u64, u64)> {
+fn get_locations_for_seed_ranges(seed: Vec<(u64, u64)>, almanac: &HashMap<String, AlmanacEntry>) -> Vec<(u64, u64)> {
     let mut value = seed;
     let mut type_key = "seed".to_string();
 
@@ -252,6 +254,11 @@ mod tests {
     #[test]
     fn part_two_examples() {
         assert_eq!(46, part_two(TRAINING));
+    }
+
+    #[test]
+    fn part_two_brut_force_examples() {
+        assert_eq!(46, part_two_brut_force(TRAINING));
     }
 }
 
