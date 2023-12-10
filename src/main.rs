@@ -3,7 +3,7 @@ use std::env;
 use std::io;
 use std::io::Error;
 
-use aoc2023::{day01, day02, day03, day04, day05, day06, day07, day08, day09};
+use aoc2023::{day01, day02, day03, day04, day05, day06, day07, day08, day09, day10};
 use aoc2023::utils::{pretty_print_part_one, pretty_print_part_two};
 use aoc2023::utils::get_day_input;
 
@@ -21,6 +21,7 @@ fn main() -> io::Result<()> {
     launch_day(&args, 7, day07::part_one, day07::part_two)?;
     launch_day(&args, 8, day08::part_one, day08::part_two)?;
     launch_day(&args, 9, day09::part_one, day09::part_two)?;
+    launch_day(&args, 10, day10::part_one, day10::part_two)?;
 
     Ok(())
 }

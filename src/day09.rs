@@ -6,6 +6,7 @@ pub fn part_one(data: &str) -> i32 {
 pub fn part_two(data: &str) -> i32 {
     let lists = extract_lists(data);
     return lists.iter().map(|list| {
+        // Reverse the list so we can use the same algorithm as part one
         let mut reversed_list = list.clone();
         reversed_list.reverse();
         next_value(&reversed_list)
@@ -48,7 +49,6 @@ mod tests {
     fn part_two_examples() {
         let training: &str = indoc! {"
             10 13 16 21 30 45
-
         "};
 
         assert_eq!(5, part_two(training));
